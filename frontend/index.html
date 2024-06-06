@@ -31,4 +31,25 @@
     </wc-form>
 </body>
 
+<script>
+    customElements.define('wc-form', class extends HTMLElement {
+        constructor() {
+            super();
+
+            this.isPasswordHidden = true;
+            this.password = this.querySelector('#password');
+            this.checkbox = this.querySelector('#show-password');
+
+            this.checkbox.addEventListener('click', this);
+
+            console.log(this.password, this.checkbox);
+        }
+
+        handleEvent(event) {
+            this.isPasswordHidden = !this.isPasswordHidden;
+            this.password.type = this.isPasswordHidden ? 'password' : 'text';
+        }
+    });
+</script>
+
 </html>
