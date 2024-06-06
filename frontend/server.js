@@ -8,8 +8,8 @@ app.get('/', function (req, res) {
   });
 });
 
-app.get('/index.css', function (req, res) {
-  res.sendFile('index.css', {
+app.get('/:exerciseId', function (req, res) {
+  res.sendFile(req.params.exerciseId + '/index.html', {
     root: __dirname
   });
 });

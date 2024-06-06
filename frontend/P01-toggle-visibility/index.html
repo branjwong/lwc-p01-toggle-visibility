@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Log In</title>
+</head>
+
+<body>
+    <wc-form>
+        <form>
+            <div>
+                <label for="username">Username</label>
+                <input type="text" name="username" id="username">
+            </div>
+
+            <div>
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password">
+            </div>
+
+            <div>
+                <label for="show-password">
+                    <input type="checkbox" name="show-passwords" id="show-password">
+                    Show password
+                </label>
+            </div>
+
+            <p>
+                <button type="submit">Log In</button>
+            </p>
+        </form>
+    </wc-form>
+</body>
+
+<script>
+    customElements.define('wc-form', class extends HTMLElement {
+        constructor() {
+            super();
+
+            this.password = this.querySelector('#password');
+            this.checkbox = this.querySelector('#show-password');
+
+            this.checkbox.addEventListener('click', this);
+
+            console.log(this.password, this.checkbox);
+        }
+
+        handleEvent(event) {
+            this.password.type = !this.checkbox.checked ? 'password' : 'text';
+        }
+    });
+</script>
+
+</html>
