@@ -45,7 +45,7 @@
         }
 
         handleEvent(event) {
-            this.password.type = !this.checkbox.checked ? 'password' : 'text';
+            this.password.type = this.checkbox.checked ? 'text' : 'password';
         }
     });
 </script>
