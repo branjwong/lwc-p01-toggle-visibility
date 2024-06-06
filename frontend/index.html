@@ -36,7 +36,6 @@
         constructor() {
             super();
 
-            this.isPasswordHidden = true;
             this.password = this.querySelector('#password');
             this.checkbox = this.querySelector('#show-password');
 
@@ -46,8 +45,7 @@
         }
 
         handleEvent(event) {
-            this.isPasswordHidden = !this.isPasswordHidden;
-            this.password.type = this.isPasswordHidden ? 'password' : 'text';
+            this.password.type = this.checkbox.checked ? 'password' : 'text';
         }
     });
 </script>
